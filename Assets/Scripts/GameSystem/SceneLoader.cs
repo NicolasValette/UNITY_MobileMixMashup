@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,21 +6,42 @@ namespace MobileMixMashup
 {
     public class SceneLoader : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        public GameInfo[] GameInfos;
+
+        public void LoadSettingsScene(string gameName)
         {
-        
+            if (!TryGetInfosFromGameName(gameName, out var gameInfo))
+                return;
+
+            SceneManager.LoadScene(gameInfo.SettingsSceneName);
         }
 
-        // Update is called once per frame
-        void Update()
+        public void LoadGameScene(string gameName)
         {
-        
+            if (!TryGetInfosFromGameName(gameName, out var gameInfo))
+                return;
+
+            SceneManager.LoadScene(gameInfo.GameSceneName);
         }
 
-        public void LoadScene (string sceneName)
+        private bool TryGetInfosFromGameName(string gameName, out GameInfo gameInfo)
         {
-            SceneManager.LoadScene(sceneName);
+            var game = GameInfo.GameByName(gameName);
+            if (game == EGame.Unknown)
+            {
+                Debug.LogError("Cannot handle Unknown game. Check the button setup!");
+                gameInfo = null;
+                return false;
+            }
+
+            gameInfo = GameInfos.FirstOrDefault(gi => gi.Game == game);
+            if (gameInfo == null)
+            {
+                Debug.LogError($"No game info for {game.ToString()}. Check {nameof(SceneLoader)} setup!");
+                return false;
+            }
+
+            return true;
         }
     }
 }
