@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,13 +13,14 @@ namespace MobileMixMashup
 
     public abstract class GameSettings : MonoBehaviour
     {
+        [Header("Presets")]
         public Color SelectedDifficultyColor = Color.cyan;
         public Image EasyButton;
         public Image MediumButton;
         public Image HardButton;
 
+        public EDifficulty Difficulty => _difficulty;
         private EDifficulty _difficulty = EDifficulty.Custom;
-        public EDifficulty Difficulty { get; }
 
         public virtual void SetEasySettings()
         {
