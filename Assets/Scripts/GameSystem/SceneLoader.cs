@@ -1,47 +1,13 @@
-using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace MobileMixMashup
 {
-    public class SceneLoader : MonoBehaviour
+    public class SimpleSceneLoader : MonoBehaviour
     {
-        public GameInfo[] GameInfos;
-
-        public void LoadSettingsScene(string gameName)
+        public void LoadSceneByName(string name)
         {
-            if (!TryGetInfosFromGameName(gameName, out var gameInfo))
-                return;
-
-            SceneManager.LoadScene(gameInfo.SettingsSceneName);
-        }
-
-        public void LoadGameScene(string gameName)
-        {
-            if (!TryGetInfosFromGameName(gameName, out var gameInfo))
-                return;
-
-            SceneManager.LoadScene(gameInfo.GameSceneName);
-        }
-
-        private bool TryGetInfosFromGameName(string gameName, out GameInfo gameInfo)
-        {
-            var game = GameInfo.GameByName(gameName);
-            if (game == EGame.Unknown)
-            {
-                Debug.LogError("Cannot handle Unknown game. Check the button setup!");
-                gameInfo = new GameInfo();
-                return false;
-            }
-
-            gameInfo = GameInfos.FirstOrDefault(gi => gi.Game == game);
-            if (string.IsNullOrEmpty(gameInfo.GameSceneName) || string.IsNullOrEmpty(gameInfo.SettingsSceneName))
-            {
-                Debug.LogError($"No game info for {game.ToString()}. Check {nameof(SceneLoader)} setup!");
-                return false;
-            }
-
-            return true;
+            SceneManager.LoadScene(name);
         }
     }
 }
