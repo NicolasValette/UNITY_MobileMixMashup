@@ -30,12 +30,12 @@ namespace MobileMixMashup
             if (game == EGame.Unknown)
             {
                 Debug.LogError("Cannot handle Unknown game. Check the button setup!");
-                gameInfo = null;
+                gameInfo = new GameInfo();
                 return false;
             }
 
             gameInfo = GameInfos.FirstOrDefault(gi => gi.Game == game);
-            if (gameInfo == null)
+            if (string.IsNullOrEmpty(gameInfo.GameSceneName) || string.IsNullOrEmpty(gameInfo.SettingsSceneName))
             {
                 Debug.LogError($"No game info for {game.ToString()}. Check {nameof(SceneLoader)} setup!");
                 return false;

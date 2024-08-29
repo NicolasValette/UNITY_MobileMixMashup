@@ -1902,6 +1902,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108035b31ba4f184aae1038d50ec339f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameInfos:
+  - Game: 1
+    SettingsSceneName: HexaSortSettings
+    GameSceneName: HexaSortGame
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

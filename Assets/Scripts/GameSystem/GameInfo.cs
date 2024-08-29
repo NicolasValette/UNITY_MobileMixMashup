@@ -4,17 +4,17 @@ namespace MobileMixMashup
 {
     public enum EGame
     {
-        HexaSort,
+        Unknown,
 
-        Unknown
+        HexaSort,
     }
 
     [Serializable]
-    public class GameInfo
+    public struct GameInfo
     {
-        public EGame Game { get; set; }
-        public string SettingsSceneName { get; set; }
-        public string GameSceneName { get; set; }
+        public EGame Game;
+        public string SettingsSceneName;
+        public string GameSceneName;
 
         public static EGame GameByName(string name)
         {
