@@ -1,9 +1,11 @@
 using TMPro;
+using UnityEngine;
 
 namespace MobileMixMashup
 {
     public class HexaSortSettings : GameSettings
     {
+        [Header("Displays")]
         public TextMeshProUGUI FloorSizeText;
         public TextMeshProUGUI ColorCountText;
         public TextMeshProUGUI ProposedStacksText;
@@ -20,6 +22,7 @@ namespace MobileMixMashup
 
         private void Start()
         {
+            DontDestroyOnLoad(this);
             SetEasySettings();
         }
 
