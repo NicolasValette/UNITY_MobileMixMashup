@@ -1270,6 +1270,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98cccacde8df6e94d9c647e803ed2109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectedDifficultyColor: {r: 0.5411765, g: 1, b: 0.9372549, a: 1}
+  EasyButton: {fileID: 782949258}
+  MediumButton: {fileID: 384862791}
+  HardButton: {fileID: 694036243}
 --- !u!1 &1328044564
 GameObject:
   m_ObjectHideFlags: 0
