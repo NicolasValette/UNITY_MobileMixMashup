@@ -1,27 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace MobileMixMashup
 {
-    public class SceneLoader : MonoBehaviour
+    public class SimpleSceneLoader : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        public void LoadSceneByName(string name)
         {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
-
-        public void LoadScene (string sceneName)
-        {
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(name);
         }
     }
 }

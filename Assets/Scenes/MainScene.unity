@@ -1473,15 +1473,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2142476958}
-        m_TargetAssemblyTypeName: MobileMixMashup.SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_TargetAssemblyTypeName: MobileMixMashup.SimpleSceneLoader, Assembly-CSharp
+        m_MethodName: LoadSceneByName
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Hexasort
+          m_StringArgument: HexaSortSettings
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1740699706
@@ -1899,7 +1899,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2142476956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 108035b31ba4f184aae1038d50ec339f, type: 3}
+  m_Script: {fileID: 11500000, guid: d34ff5b229b06024cb5e8c767a593134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
