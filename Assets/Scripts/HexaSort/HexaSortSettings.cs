@@ -6,9 +6,9 @@ namespace MobileMixMashup
     public class HexaSortSettings : GameSettings
     {
         [Header("Displays")]
-        public TextMeshProUGUI FloorSizeText;
-        public TextMeshProUGUI ColorCountText;
-        public TextMeshProUGUI ProposedStacksText;
+        [SerializeField] private TextMeshProUGUI FloorSizeText;
+        [SerializeField] private TextMeshProUGUI ColorCountText;
+        [SerializeField] private TextMeshProUGUI ProposedStacksText;
 
         public int FloorSize => _floorSize;
         public int MinColorCount => _minColorCount;

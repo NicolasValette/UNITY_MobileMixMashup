@@ -14,10 +14,10 @@ namespace MobileMixMashup
     public abstract class GameSettings : MonoBehaviour
     {
         [Header("Presets")]
-        public Color SelectedDifficultyColor = Color.cyan;
-        public Image EasyButton;
-        public Image MediumButton;
-        public Image HardButton;
+        [SerializeField] private Color SelectedDifficultyColor = Color.cyan;
+        [SerializeField] private Image EasyButton;
+        [SerializeField] private Image MediumButton;
+        [SerializeField] private Image HardButton;
 
         public EDifficulty Difficulty => _difficulty;
         private EDifficulty _difficulty = EDifficulty.Custom;
