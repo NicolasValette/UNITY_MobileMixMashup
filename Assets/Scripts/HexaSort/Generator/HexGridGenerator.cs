@@ -19,10 +19,13 @@ namespace MobileMixMashup.HexaSort.Generator
         [Range(0,10)]
         private int _size;
 
+        public int I;
+        public int J;
+
         // Start is called before the first frame update
         void Start()
         {
-            GenerateGrid(Vector3.zero, _size);
+            
         }
 
         // Update is called once per frame
@@ -32,19 +35,26 @@ namespace MobileMixMashup.HexaSort.Generator
         }
 
 
-        private void GenerateGrid (Vector3 startingPos, int size)
+        public void GenerateGrid ()
         {
-            
             float horizontalSpace = (_orientation == HexOrientation.FlatTop)?(3f / 2f) * 0.5f:(Mathf.Sqrt(3f) * 0.5f);
             float verticalSpace = (_orientation == HexOrientation.FlatTop) ? (Mathf.Sqrt(3f) * 0.5f) : (3f/2f) * 0.5f;
 
 
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < I; i++) //col
             {
-                Vector3 tmp1 = new Vector3(horizontalSpace, 0, 0);
-                Vector3 tmp2 = new Vector3(0,0, verticalSpace);
-                Instantiate(_hexPrefab, tmp1 * i, Quaternion.identity);
-                Instantiate(_hexPrefab, tmp2 * i, Quaternion.identity);
+                for (int j=0; j < J; j++) //row
+                {
+                    Vector3 pos = new Vector3(horizontalSpace * i + ((j % 2 == 0) ? 0 : horizontalSpace / 2),
+                        0,
+                        verticalSpace * j);
+
+                    GameObject GO = Instantiate(_hexPrefab, pos, Quaternion.identity);
+                    GO.GetComponent<Renderer>().material.color = Random.ColorHSV();
+                    
+                }
+                
+                
             }
         }
     }
