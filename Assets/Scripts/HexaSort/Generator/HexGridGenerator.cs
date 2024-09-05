@@ -51,7 +51,7 @@ namespace MobileMixMashup.HexaSort.Generator
             }
         }
         /// <summary>
-        /// for test in the scene
+        /// Call GenerateGrid with serialized parameter setup in the inspector of this gameobject.
         /// </summary>
         public void GenerateGrid ()
         {
