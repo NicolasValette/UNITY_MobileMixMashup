@@ -833,6 +833,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: HexGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 7436720942399151063, guid: e470f2c98f21c8a4092ee85274c98fc9,
+        type: 3}
+      propertyPath: _size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436720942399151063, guid: e470f2c98f21c8a4092ee85274c98fc9,
+        type: 3}
+      propertyPath: _orientation
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
