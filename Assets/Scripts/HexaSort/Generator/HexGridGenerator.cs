@@ -19,19 +19,6 @@ namespace MobileMixMashup.HexaSort.Generator
         [Range(0,10)]
         private int _size;
 
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
-
         /// <summary>
         /// Generate rectangular grid of hex cell
         /// </summary>
@@ -41,29 +28,26 @@ namespace MobileMixMashup.HexaSort.Generator
             float horizontalSpace = (_orientation == HexOrientation.FlatTop)?(3f / 2f) * 0.5f:(Mathf.Sqrt(3f) * 0.5f);
             float verticalSpace = (_orientation == HexOrientation.FlatTop) ? (Mathf.Sqrt(3f) * 0.5f) : (3f/2f) * 0.5f;
 
-            for (int i = 0; i < size; i++) //col
+            for (int col = 0; col < size; col++) 
             {
-                for (int j=0; j < size; j++) //row
+                for (int row=0; row < size; row++)
                 {
                     Vector3 pos;
                     if (_orientation == HexOrientation.PointyTop)
                     {
-                        pos = new Vector3(  horizontalSpace * i + ((j % 2 == 0) ? 0 : horizontalSpace / 2),
+                        pos = new Vector3(  horizontalSpace * col + ((row % 2 == 0) ? 0 : horizontalSpace / 2),
                                             0,
-                                            verticalSpace * j);
+                                            verticalSpace * row);
                     }
                     else
                     {
-                        pos = new Vector3(  horizontalSpace * i,
+                        pos = new Vector3(  horizontalSpace * col,
                                             0,
-                                            verticalSpace * j +((i % 2 != 0) ? 0 : verticalSpace / 2));
+                                            verticalSpace * row +((col % 2 != 0) ? 0 : verticalSpace / 2));
                     }
                     GameObject GO = Instantiate(_hexPrefab, pos, (_orientation == HexOrientation.FlatTop)? Quaternion.Euler(0,90f,0) : Quaternion.identity);
                     if (colorGrid) GO.GetComponent<Renderer>().material.color = Random.ColorHSV();
-                    
                 }
-                
-                
             }
         }
         /// <summary>
